@@ -5,47 +5,53 @@
 #include <glm/fwd.hpp>
 #include <memory>
 
-namespace King {
-	class Updater;
-	class Engine {
-	public:
-		enum Texture {
-			TEXTURE_BACKGROUND,
-			TEXTURE_MARK,
-			TEXTURE_BLUE,
-			TEXTURE_GREEN,
-			TEXTURE_PURPLE,
-			TEXTURE_RED,
-			TEXTURE_YELLOW,
-			TEXTURE_MAX,
-		};
+namespace King
+{
+    class Updater;
+    class Engine
+    {
+    public:
+        enum Texture {
+            TEXTURE_BACKGROUND,
+            TEXTURE_BLUE,
+            TEXTURE_BLUE_SELECTED,
+            TEXTURE_GREEN,
+            TEXTURE_GREEN_SELECTED,
+            TEXTURE_PURPLE,
+            TEXTURE_PURPLE_SELECTED,
+            TEXTURE_RED,
+            TEXTURE_RED_SELECTED,
+            TEXTURE_YELLOW,
+            TEXTURE_YELLOW_SELECTED,
+            TEXTURE_MAX,
+        };
 
-		Engine(const char* assetsDirectory);
-		~Engine();
+        Engine(const char *assetsDirectory);
+        ~Engine();
 
-		float GetLastFrameSeconds() const;
-		float GetMouseX() const;
-		float GetMouseY() const;
-		bool GetMouseButtonDown() const;
-		
-		void Start(Updater& updater);
-		void Quit();
+        float GetLastFrameSeconds() const;
+        float GetMouseX() const;
+        float GetMouseY() const;
+        bool GetMouseButtonDown() const;
 
-		int GetTextureHeight(Texture texture) const;
-		int GetTextureWidth(Texture texture) const;
-		void Render(Texture texture, const glm::mat4& transform);
-		void Render(Texture texture, float x, float y, float rotation = 0.0f);
+        void Start(Updater &updater);
+        void Quit();
+
+        int GetTextureHeight(Texture texture) const;
+        int GetTextureWidth(Texture texture) const;
+        void Render(Texture texture, const glm::mat4 &transform);
+        void Render(Texture texture, float x, float y, float rotation = 0.0f);
 
 
-		float CalculateStringWidth(const char* text) const;
-		void Write(const char* text, const glm::mat4& transform);
-		void Write(const char* text, float x, float y, float rotation = 0.0f);
+        float CalculateStringWidth(const char *text) const;
+        void Write(const char *text, const glm::mat4 &transform);
+        void Write(const char *text, float x, float y, float rotation = 0.0f);
 
-		int GetWidth() const;
-		int GetHeight() const;
+        int GetWidth() const;
+        int GetHeight() const;
 
-	private:
-		struct EngineImplementation;
-		std::unique_ptr<EngineImplementation> mPimpl;
-	};
+    private:
+        struct EngineImplementation;
+        std::unique_ptr<EngineImplementation> mPimpl;
+    };
 }

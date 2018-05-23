@@ -17,7 +17,7 @@ AStyle.exe --style=kr^
  --pad-header --pad-oper --unpad-paren^
  --align-pointer=name^
  --preserve-date^
- --recursive ..\..\src\*.cpp ..\..\src\*.h
+ --recursive ..\..\src\*.cpp ..\..\src\*.h ..\..\external\include\king\*.cpp ..\..\external\include\king\*.h
 IF %ERRORLEVEL% NEQ 0 (
   ECHO.
   ECHO ERROR: Something went wrong!

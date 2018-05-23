@@ -35,7 +35,7 @@ namespace MinerSpeed
 
     private:
         void	DrawNeutreal();
-        void	DrawSelected();
+        void	DrawSelected(const MinerSpeed::Item::Color color);
 
     private:
         King::Engine			*mEngine;

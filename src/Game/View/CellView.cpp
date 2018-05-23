@@ -83,7 +83,7 @@ namespace MinerSpeed
         Item::State state = item->GetState();
         switch (state) {
             case Item::State::STATE_SELECTED: {
-                DrawSelected();
+                DrawSelected((&mCell->GetItem())->GetColor());
                 break;
             }
             default: {
@@ -132,9 +132,34 @@ namespace MinerSpeed
     }
 
     //********************************************************************************************************************************
-    void CellView::DrawSelected()
+    void CellView::DrawSelected(const MinerSpeed::Item::Color color)
     {
-        const King::Engine::Texture textureMark = King::Engine::Texture::TEXTURE_MARK;
+        King::Engine::Texture textureMark;
+        switch (color) {
+            case Item::Color::COLOR_BLUE: {
+                textureMark = King::Engine::Texture::TEXTURE_BLUE_SELECTED;
+                break;
+            }
+            case Item::Color::COLOR_GREEN: {
+                textureMark = King::Engine::Texture::TEXTURE_GREEN_SELECTED;
+                break;
+            }
+            case Item::Color::COLOR_PURPLE: {
+                textureMark = King::Engine::Texture::TEXTURE_PURPLE_SELECTED;
+                break;
+            }
+            case Item::Color::COLOR_RED: {
+                textureMark = King::Engine::Texture::TEXTURE_RED_SELECTED;
+                break;
+            }
+            case Item::Color::COLOR_YELLOW: {
+                textureMark = King::Engine::Texture::TEXTURE_YELLOW_SELECTED;
+                break;
+            }
+            default: {
+                assert(false);
+            }
+        }
         mRotation += mEngine->GetLastFrameSeconds();
 
         int textWidth = mEngine->GetTextureWidth(textureMark);
