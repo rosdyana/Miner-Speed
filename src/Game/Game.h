@@ -7,7 +7,6 @@ namespace MinerSpeed
     class GameView;
     class Board;
     class MatchFinder;
-	class Audio;
 }
 
 namespace King
@@ -47,6 +46,5 @@ namespace MinerSpeed
         GameView		*mView;
         Board			*mBoard;
         MatchFinder	*mMatchFinder;
-		Audio		*mAudio;
     };
 }

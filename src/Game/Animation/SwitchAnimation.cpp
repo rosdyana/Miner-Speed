@@ -2,6 +2,7 @@
 #include "../View/CellVIew.h"
 #include "../Tween/GroupTween.h"
 #include "../Tween/PositionTween.h"
+#include "../Audio/Audio.h"
 
 #include <king/Engine.h>
 
@@ -34,5 +35,6 @@ namespace MinerSpeed
         mGroupTween->AddTween(new MinerSpeed::PositionTween(*mEngine, textureA, posA, posB, 1.2f, 2.0f));
         mGroupTween->AddTween(new MinerSpeed::PositionTween(*mEngine, textureB, posB, posA, 1.2f, 2.0f));
         mGroupTween->Start();
+		mAudio->PlaySound(Audio::SoundFx::DiamondLanding);
     }
 }

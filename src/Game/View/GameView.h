@@ -7,6 +7,7 @@
 namespace MinerSpeed
 {
     class BoardView;
+	class Audio;
 }
 
 namespace MinerSpeed
@@ -54,6 +55,7 @@ namespace MinerSpeed
 
     private:
         MinerSpeed::BoardView	*mBoardView;
+		MinerSpeed::Audio		*mAudio;
         State				mCurrentState;
         float				mTime;
         float				mDuration;

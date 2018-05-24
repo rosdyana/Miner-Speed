@@ -1,5 +1,5 @@
 #include "Animation.h"
-
+#include "../Audio/Audio.h"
 #include "../Tween/GroupTween.h"
 
 #include <king/Engine.h>
@@ -26,6 +26,7 @@ namespace MinerSpeed
     void Animation::Init()
     {
         mGroupTween = new MinerSpeed::GroupTween();
+		mAudio = new MinerSpeed::Audio();
     }
 
     //********************************************************************************************************************************

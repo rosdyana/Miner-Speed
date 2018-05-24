@@ -2,7 +2,6 @@
 #include "View/GameView.h"
 #include "Model/Board.h"
 #include "MatchFinder/MatchFinder.h"
-#include "Audio/Audio.h"
 
 #include <ctime>
 #include <king/Engine.h>
@@ -66,12 +65,9 @@ namespace MinerSpeed
         assert(nullptr != mBoard);
         mView = new GameView();
         assert(nullptr != mView);
-		mAudio = new Audio();
-		assert(nullptr != mAudio);
 
         mMatchFinder->Init(*mBoard);
         mBoard->InitRandom(*mMatchFinder);
         mView->Init(*this);
-		mAudio->PlayMusic();
     }
 }

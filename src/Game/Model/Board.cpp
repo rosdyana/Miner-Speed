@@ -2,7 +2,7 @@
 #include "Cell.h"
 
 #include "../MatchFinder/MatchFinder.h"
-
+#include "../Audio/Audio.h"
 #include <assert.h>
 #include <ctime>
 #include <cmath>
@@ -16,7 +16,10 @@ namespace MinerSpeed
         , mRowCount(rowCount)
         , mMatchFinder(nullptr)
         , mCells(mColCount * mRowCount)
+		, mAudio(nullptr)
     {
+		mAudio = new Audio();
+		assert(mAudio != nullptr);
     }
 
     //********************************************************************************************************************************
@@ -110,6 +113,7 @@ namespace MinerSpeed
         } else {
             mSelectedCells.clear();
             SelectCell(*cell);
+			mAudio->PlaySound(Audio::SoundFx::DiamondLanding);
         }
     }
 

@@ -3,6 +3,7 @@
 namespace MinerSpeed
 {
     class GroupTween;
+	class Audio;
 }
 
 namespace King
@@ -30,5 +31,6 @@ namespace MinerSpeed
         bool				mIsRunning;
         King::Engine		*mEngine;
         MinerSpeed::GroupTween	*mGroupTween;
+		MinerSpeed::Audio * mAudio;
     };
 }

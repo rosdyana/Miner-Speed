@@ -12,6 +12,7 @@ namespace MinerSpeed
     class Cell;
     class Item;
     class MatchFinder;
+	class Audio;
 }
 
 namespace MinerSpeed
@@ -109,5 +110,6 @@ namespace MinerSpeed
         TVShiftedCells					mShiftedCells;
         Board::VPCells					mCreatedCells;
         MinerSpeed::ObjectPool<MinerSpeed::Item>	mItemPool;
+		MinerSpeed::Audio				*mAudio;
     };
 }

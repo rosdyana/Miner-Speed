@@ -1,5 +1,5 @@
 #include "GameView.h"
-
+#include "../Audio/Audio.h"
 #include "BoardView.h"
 #include "../Game.h"
 
@@ -13,9 +13,12 @@ namespace MinerSpeed
 
     const char	*GameView::WELCOME_TEXT		=	"Welcome To The Game! Click To Begin.";
     const char	*GameView::GAME_OVER_TEXT	=	"Game Over. Time Is Up.";
-    const int	GameView::MAX_PLAYING_TIME	=	60;
+    const int	GameView::MAX_PLAYING_TIME	=	15;
 
     unsigned int	GameView::TIME_PASSED	=	0;
+
+	bool isGameOver = false;
+	bool isAlmostDone = false;
 
     unsigned int GameView::TIMER_CALLBACK(unsigned int interval, void *param)
     {
@@ -27,6 +30,7 @@ namespace MinerSpeed
     GameView::GameView()
         : View()
         , mBoardView(nullptr)
+		, mAudio(nullptr)
         , mCurrentState(GameView::State::STATE_MIN)
         , mTime(0.0f)
         , mWelcomeTextPosition(0.0f, 0.0f)
@@ -52,6 +56,8 @@ namespace MinerSpeed
         mBoardView = new BoardView();
         assert(mBoardView != nullptr);
         mBoardView->Init(game, mPosition);
+		mAudio = new Audio();
+		assert(mAudio != nullptr);
     }
 
     //********************************************************************************************************************************
@@ -133,6 +139,12 @@ namespace MinerSpeed
     void GameView::UpdateGameOver()
     {
         mEngine->Write(GameView::GAME_OVER_TEXT, mGameOverTextPosition.x, mGameOverTextPosition.y, 0.0f);
+		if (!isGameOver) {
+			mAudio->PlaySound(Audio::SoundFx::Explosion);
+			mAudio->StopMusic();
+			isGameOver = true;
+		}
+		
     }
 
     //********************************************************************************************************************************
@@ -148,5 +160,11 @@ namespace MinerSpeed
         char const *pChar = s.c_str();
         float labelWidth = mEngine->CalculateStringWidth(pChar);
         mEngine->Write(pChar, mPlayingTimeLabelPosition.x - labelWidth / 2, mPlayingTimeLabelPosition.y, 0.0f);
+		if (delta <= 10) {
+			if (!isAlmostDone) {
+				mAudio->PlaySound(Audio::SoundFx::HurryUp);
+				isAlmostDone = true;
+			}
+		}
     }
 }

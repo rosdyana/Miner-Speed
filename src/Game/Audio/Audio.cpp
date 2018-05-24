@@ -22,17 +22,22 @@ namespace MinerSpeed
     };
 
     const int mMixChannels = 16;
-    const std::string mAssetFolder = "/assets/sfx/";
+    const std::string mAssetFolder = "./assets/sfx/";
 
     //********************************************************************************************************************************
     Audio::Audio()
     {
+		if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024) != 0) {
+			std::cout << "Mix_OpenAudio Error: " << Mix_GetError() << std::endl;
+			exit(-1);
+		}
         std::string full_path = mAssetFolder + "music-loop.wav";
 
         music_ = UniqueMusicPtr{ Mix_LoadMUS(full_path.c_str()) };
 
         if (nullptr == music_) {
             std::cout << "Failed to load: " << full_path << ". Error: " << Mix_GetError() << std::endl;
+			exit(-1);
         }
         Mix_AllocateChannels(mMixChannels);
         Mix_VolumeMusic(MIX_MAX_VOLUME / 3);
@@ -47,6 +52,7 @@ namespace MinerSpeed
 
             if (nullptr == chunk) {
                 std::cout << "Failed to load: " << full_path << ". Error: " << Mix_GetError() << std::endl;
+				exit(-1);
             }
             Mix_VolumeChunk(chunk.get(), volume);
             sound_effects_.push_back(std::move(chunk));

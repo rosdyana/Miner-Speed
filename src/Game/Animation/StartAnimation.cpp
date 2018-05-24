@@ -3,6 +3,7 @@
 #include "../View/CellView.h"
 #include "../Tween/GroupTween.h"
 #include "../Tween/PositionTween.h"
+#include "../Audio/Audio.h"
 
 #include <king/Engine.h>
 
@@ -43,5 +44,6 @@ namespace MinerSpeed
         glm::vec2 posB = posA;
         posB.y -= shift * MinerSpeed::CELL_HEIGHT;
         mGroupTween->AddTween(new MinerSpeed::PositionTween(*mEngine, texture, posB, posA, 1.2f, 2.0f));
+		mAudio->PlayMusic();
     }
 }
