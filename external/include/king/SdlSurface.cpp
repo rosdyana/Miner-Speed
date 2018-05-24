@@ -6,6 +6,7 @@
 #include <sdl/SDL.h>
 #include <sdl/SDL_image.h>
 
+
 namespace King
 {
     SdlSurface::SdlSurface(const char *filename)

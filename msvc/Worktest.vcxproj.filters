@@ -58,6 +58,12 @@
     <Filter Include="Header Files\Game\ObjectPool">
       <UniqueIdentifier>{f9da975e-838f-4668-b084-9a196805805f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\Audio">
+      <UniqueIdentifier>{23b82fcc-0a4f-485e-88a3-5680c5e37e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Audio">
+      <UniqueIdentifier>{d924b2f2-e439-406c-a160-cf7020fdec88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -131,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Game\View\View.cpp">
       <Filter>Source Files\Game\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Audio\Audio.cpp">
+      <Filter>Source Files\Game\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Game\Tween\ProportionalScaleTween.h">
       <Filter>Header Files\Game\Tween</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Audio\Audio.h">
+      <Filter>Header Files\Game\Audio</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
