@@ -6,23 +6,22 @@
 
 namespace MinerSpeed
 {
-    class CellView;
+class CellView;
 }
 
 namespace MinerSpeed
 {
 
-    class CollapseAnimation : public Animation
-    {
-    public:
-        CollapseAnimation(King::Engine &engine);
-        virtual	~CollapseAnimation();
+class CollapseAnimation : public Animation
+{
+  public:
+    CollapseAnimation(King::Engine &engine);
+    virtual ~CollapseAnimation();
 
-    public:
-        void	Start(const BoardView::VPShiftedCellViews &shiftedCellViews, const BoardView::VPCellViews &createdCellViews);
+  public:
+    void Start(const BoardView::VPShiftedCellViews &shiftedCellViews, const BoardView::VPCellViews &createdCellViews);
 
-    private:
-        void	AddToGroup(const MinerSpeed::CellView *cellView, const size_t shift);
-
-    };
-}
+  private:
+    void AddToGroup(const MinerSpeed::CellView *cellView, const size_t shift);
+};
+} // namespace MinerSpeed

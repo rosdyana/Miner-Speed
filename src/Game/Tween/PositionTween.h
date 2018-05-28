@@ -8,32 +8,32 @@
 namespace MinerSpeed
 {
 
-    class PositionTween : public MinerSpeed::ITween
-    {
+class PositionTween : public MinerSpeed::ITween
+{
 
-    public:
-        PositionTween(King::Engine &engine, const King::Engine::Texture &texture, const glm::vec2 &startPos,
-                      const glm::vec2 &endPos, const float duration, const float acceleration);
-        virtual	~PositionTween();
+  public:
+    PositionTween(King::Engine &engine, const King::Engine::Texture &texture, const glm::vec2 &startPos,
+                  const glm::vec2 &endPos, const float duration, const float acceleration);
+    virtual ~PositionTween();
 
-    public:
-        virtual	void	Start();
-        virtual	void	Update();
-        virtual	bool	IsCompleted();
+  public:
+    virtual void Start();
+    virtual void Update();
+    virtual bool IsCompleted();
 
-    private:
-        King::Engine			*mEngine;
+  private:
+    King::Engine *mEngine;
 
-    private:
-        glm::vec2				mStartPos;
-        glm::vec2				mEndPos;
-        King::Engine::Texture	mTexture;
-        float					mTime;
-        float					mDuration;
-        float					mAcceleration;
-        float					mCurrentVelocity;
-        glm::vec2				mCurrentPos;
-        glm::vec2				mDirectionMask;
-        bool					mIsCompleted;
-    };
-}
+  private:
+    glm::vec2 mStartPos;
+    glm::vec2 mEndPos;
+    King::Engine::Texture mTexture;
+    float mTime;
+    float mDuration;
+    float mAcceleration;
+    float mCurrentVelocity;
+    glm::vec2 mCurrentPos;
+    glm::vec2 mDirectionMask;
+    bool mIsCompleted;
+};
+} // namespace MinerSpeed
