@@ -13,7 +13,7 @@ namespace MinerSpeed
     const char *GameView::WELCOME_TEXT = "Click to Start the Game.";
     const char *GameView::GAME_OVER_TEXT = "G A M E O V E R";
     const char *GameView::TRY_AGAIN_TEXT = "Click to Try Again.";
-    const int GameView::MAX_PLAYING_TIME = 15;
+    const int GameView::MAX_PLAYING_TIME = 60;
 
     unsigned int GameView::TIME_PASSED = 0;
 
