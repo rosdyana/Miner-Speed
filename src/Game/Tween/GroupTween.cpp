@@ -3,63 +3,58 @@
 namespace MinerSpeed
 {
 
-//********************************************************************************************************************************
-GroupTween::GroupTween()
-{
-}
-
-//********************************************************************************************************************************
-GroupTween::~GroupTween()
-{
-    RemoveTweens();
-}
-
-//********************************************************************************************************************************
-void GroupTween::AddTween(ITween *tween)
-{
-    mTweens.push_back(tween);
-}
-
-//********************************************************************************************************************************
-void GroupTween::RemoveTweens()
-{
-    for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it)
+    //********************************************************************************************************************************
+    GroupTween::GroupTween()
     {
-        delete *it;
     }
-    mTweens.clear();
-}
 
-//********************************************************************************************************************************
-void GroupTween::Start()
-{
-    for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it)
+    //********************************************************************************************************************************
+    GroupTween::~GroupTween()
     {
-        (*it)->Start();
+        RemoveTweens();
     }
-}
 
-//********************************************************************************************************************************
-void GroupTween::Update()
-{
-    for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it)
+    //********************************************************************************************************************************
+    void GroupTween::AddTween(ITween *tween)
     {
-        (*it)->Update();
+        mTweens.push_back(tween);
     }
-}
 
-//********************************************************************************************************************************
-bool GroupTween::IsCompleted()
-{
-    bool retVal = true;
-    for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it)
+    //********************************************************************************************************************************
+    void GroupTween::RemoveTweens()
     {
-        if (false == (*it)->IsCompleted())
-        {
-            retVal = false;
-            break;
+        for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it) {
+            delete *it;
+        }
+        mTweens.clear();
+    }
+
+    //********************************************************************************************************************************
+    void GroupTween::Start()
+    {
+        for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it) {
+            (*it)->Start();
         }
     }
-    return retVal;
-}
+
+    //********************************************************************************************************************************
+    void GroupTween::Update()
+    {
+        for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it) {
+            (*it)->Update();
+        }
+    }
+
+    //********************************************************************************************************************************
+    bool GroupTween::IsCompleted()
+    {
+        bool retVal = true;
+        for (VPTweens::iterator it = mTweens.begin(); it != mTweens.end(); ++it) {
+            if (false == (*it)->IsCompleted()) {
+                retVal = false;
+                break;
+            }
+        }
+        return retVal;
+    }
 } // namespace MinerSpeed
