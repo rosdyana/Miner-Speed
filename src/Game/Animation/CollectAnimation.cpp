@@ -9,11 +9,11 @@
 namespace MinerSpeed
 {
 
-    const char *CollectAnimation::BOOM_TEXT = "BOOOM!";
-    const char *CollectAnimation::BABAX_TEXT = "BABAAX!";
-    const char *CollectAnimation::TADASH_TEXT = "TADAAASH!";
+    const char *CollectAnimation::WOW_TEXT = "WOOOWW!";
+    const char *CollectAnimation::AMAZING_TEXT = "AMAZIIING!";
+    const char *CollectAnimation::AWESOME_TEXT = "AWESEOOMMEE!";
 
-    const char *const CollectAnimation::EXPLOSION_TEXTS[] = {CollectAnimation::BOOM_TEXT, CollectAnimation::BABAX_TEXT, CollectAnimation::TADASH_TEXT};
+    const char *const CollectAnimation::COLLECTED_TEXT[] = {CollectAnimation::WOW_TEXT, CollectAnimation::AMAZING_TEXT, CollectAnimation::AWESOME_TEXT };
 
     //********************************************************************************************************************************
     CollectAnimation::CollectAnimation(King::Engine &engine, glm::vec2 explostionTextPositionOnScreen)
@@ -61,7 +61,7 @@ namespace MinerSpeed
     void CollectAnimation::UpdateExplosionLabel()
     {
         ++mRotationStep;
-        const char *label = CollectAnimation::EXPLOSION_TEXTS[mCurrentExplosionTextIndex];
+        const char *label = CollectAnimation::COLLECTED_TEXT[mCurrentExplosionTextIndex];
         float labelWidth = mEngine->CalculateStringWidth(label);
         float rotation = mRotationStep * mRotationDirectionMask * 3.14f / 180;
         rotation = (rotation > 75 ? 75 : rotation);
@@ -71,6 +71,6 @@ namespace MinerSpeed
     //********************************************************************************************************************************
     const size_t CollectAnimation::GetRandomExplostionTextIndex()
     {
-        return CollectAnimation::ExplostionTexts::TEXT_BOOM + (rand() % ((CollectAnimation::ExplostionTexts::TEXT_MAX) - CollectAnimation::ExplostionTexts::TEXT_BOOM));
+        return CollectAnimation::CollectedTexts::TEXT_WOW + (rand() % ((CollectAnimation::CollectedTexts::TEXT_MAX) - CollectAnimation::CollectedTexts::TEXT_WOW));
     }
 } // namespace MinerSpeed

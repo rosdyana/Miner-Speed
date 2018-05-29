@@ -87,6 +87,7 @@
     <ClCompile Include="..\src\Game\Animation\CollectAnimation.cpp" />
     <ClCompile Include="..\src\Game\Animation\StartAnimation.cpp" />
     <ClCompile Include="..\src\Game\Animation\SwitchAnimation.cpp" />
+    <ClCompile Include="..\src\Game\Animation\TimerAnimation.cpp" />
     <ClCompile Include="..\src\Game\Audio\Audio.cpp" />
     <ClCompile Include="..\src\Game\Game.cpp" />
     <ClCompile Include="..\src\Game\MatchFinder\MatchFinder.cpp" />
@@ -115,6 +116,7 @@
     <ClInclude Include="..\src\Game\Animation\CollectAnimation.h" />
     <ClInclude Include="..\src\Game\Animation\StartAnimation.h" />
     <ClInclude Include="..\src\Game\Animation\SwitchAnimation.h" />
+    <ClInclude Include="..\src\Game\Animation\TimerAnimation.h" />
     <ClInclude Include="..\src\Game\Audio\Audio.h" />
     <ClInclude Include="..\src\Game\Game.h" />
     <ClInclude Include="..\src\Game\MatchFinder\MatchFinder.h" />

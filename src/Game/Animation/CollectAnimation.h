@@ -10,18 +10,18 @@ namespace MinerSpeed
     {
 
     private:
-        static const char *BOOM_TEXT;
-        static const char *BABAX_TEXT;
-        static const char *TADASH_TEXT;
+        static const char *WOW_TEXT;
+        static const char *AMAZING_TEXT;
+        static const char *AWESOME_TEXT;
 
-        enum ExplostionTexts {
-            TEXT_BOOM,
-            TEXT_BABAX,
-            TEXT_TADASH,
+        enum CollectedTexts {
+            TEXT_WOW,
+            TEXT_AMAZING,
+            TEXT_AWESOME,
             TEXT_MAX
         };
 
-        static const char *const EXPLOSION_TEXTS[];
+        static const char *const COLLECTED_TEXT[];
 
     public:
         CollectAnimation(King::Engine &engine, glm::vec2 explostionTextPositionOnScreen);

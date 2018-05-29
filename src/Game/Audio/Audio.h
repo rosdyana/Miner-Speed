@@ -19,10 +19,12 @@ namespace MinerSpeed
     {
     public:
         enum SoundFx {
+            GAMESTART,
             DIAMOND_LANDING,
             EXPLOSION,
             MOVE_SUCCESFUL,
-            HURRYUP
+            HURRYUP,
+            SOUNDMAX
         };
 
         Audio();

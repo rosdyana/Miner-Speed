@@ -28,6 +28,7 @@ namespace MinerSpeed
     private:
         static const char *WELCOME_TEXT;
         static const char *GAME_OVER_TEXT;
+        static const char *TRY_AGAIN_TEXT;
         static const int MAX_PLAYING_TIME;
 
     private:
@@ -61,6 +62,7 @@ namespace MinerSpeed
         float mDuration;
         glm::vec2 mWelcomeTextPosition;
         glm::vec2 mGameOverTextPosition;
+        glm::vec2 mTryAgainTextPosition;
         glm::vec2 mPlayingTimeLabelPosition;
         SDL_TimerID myTimerID;
     };

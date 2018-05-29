@@ -10,8 +10,9 @@
 namespace MinerSpeed
 {
 
-    const char *GameView::WELCOME_TEXT = "Welcome To The Game! Click To Begin.";
-    const char *GameView::GAME_OVER_TEXT = "Game Over. Time Is Up.";
+    const char *GameView::WELCOME_TEXT = "Click to Start the Game.";
+    const char *GameView::GAME_OVER_TEXT = "G A M E O V E R";
+    const char *GameView::TRY_AGAIN_TEXT = "Click to Try Again.";
     const int GameView::MAX_PLAYING_TIME = 15;
 
     unsigned int GameView::TIME_PASSED = 0;
@@ -60,9 +61,11 @@ namespace MinerSpeed
         int backgroundHeight = mEngine->GetTextureHeight(King::Engine::TEXTURE_BACKGROUND);
         float welcomeTextWidth = mEngine->CalculateStringWidth(GameView::WELCOME_TEXT);
         float gameOverTextWidth = mEngine->CalculateStringWidth(GameView::GAME_OVER_TEXT);
+        float tryAgainTextWidth = mEngine->CalculateStringWidth(GameView::TRY_AGAIN_TEXT);
         mPosition = glm::vec2((screenWidth - backgroundWidth) / 2, 0.0f);
         mWelcomeTextPosition = glm::vec2((screenWidth - welcomeTextWidth) / 2, backgroundHeight / 2);
-        mGameOverTextPosition = glm::vec2((screenWidth - gameOverTextWidth) / 2, backgroundHeight / 2);
+        mGameOverTextPosition = glm::vec2((screenWidth - gameOverTextWidth) / 2, backgroundHeight / 4);
+        mTryAgainTextPosition = glm::vec2((screenWidth - tryAgainTextWidth) / 2, backgroundHeight / 2);
         mPlayingTimeLabelPosition = glm::vec2(mPosition.x + 115, mPosition.y + 450);
     }
 
@@ -110,6 +113,7 @@ namespace MinerSpeed
             GameView::TIME_PASSED = 0;
             myTimerID = SDL_AddTimer(1000, TIMER_CALLBACK, NULL);
             SetCurrentState(GameView::State::STATE_PLAYING);
+            mAudio->PlaySound(Audio::GAMESTART);
         }
     }
 
@@ -134,6 +138,17 @@ namespace MinerSpeed
             mAudio->PlaySound(Audio::SoundFx::EXPLOSION);
             mAudio->StopMusic();
             isGameOver = true;
+        }
+
+        mEngine->Write(GameView::TRY_AGAIN_TEXT, mTryAgainTextPosition.x, mTryAgainTextPosition.y, 0.0f);
+        if (mEngine->GetMouseButtonDown()) {
+            mTime = 0.0f;
+            mBoardView->setEnabled(true);
+            GameView::TIME_PASSED = 0;
+            myTimerID = SDL_AddTimer(1000, TIMER_CALLBACK, NULL);
+            SetCurrentState(GameView::State::STATE_PLAYING);
+            mAudio->PlaySound(Audio::GAMESTART);
+            mAudio->PlayMusic();
         }
     }
 

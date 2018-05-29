@@ -141,6 +141,9 @@
     <ClCompile Include="..\src\Game\Audio\Audio.cpp">
       <Filter>Source Files\Game\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Game\Animation\TimerAnimation.cpp">
+      <Filter>Source Files\Game\Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\external\include\king\Engine.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Game\Audio\Audio.h">
       <Filter>Header Files\Game\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Animation\TimerAnimation.h">
+      <Filter>Header Files\Game\Animation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
