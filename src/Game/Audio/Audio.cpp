@@ -10,7 +10,7 @@ namespace MinerSpeed
         {"game-start.wav", MIX_MAX_VOLUME},
         {"diamond-land.wav", MIX_MAX_VOLUME / 4},
         {"explosion.wav", MIX_MAX_VOLUME},
-        {"move-successful.wav", MIX_MAX_VOLUME / 2},
+        {"move-successful.wav", MIX_MAX_VOLUME / 4},
         {"hurryup.wav", MIX_MAX_VOLUME}
     };
 
