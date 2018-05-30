@@ -83,24 +83,6 @@ namespace MinerSpeed
         bool IsNeighbours(const MinerSpeed::Cell &cellA, const MinerSpeed::Cell &cellB);
 
     private:
-        bool CreatePossibles();
-        bool CreatePossiblesPattern(const size_t row, const size_t col, MinerSpeed::ShiftRowCol mustHave[], MinerSpeed::ShiftRowCol needOne[], int needOneLength);
-        bool SetPossiblesColor(int row, int col, MinerSpeed::Item::Color color);
-        bool LookForPossibles();
-        bool MatchPattern(const size_t row, const size_t col, MinerSpeed::ShiftRowCol mustHave[], MinerSpeed::ShiftRowCol needOne[], int needOneLength);
-        bool MatchColor(const int row, const int col, Item::Color color);
-
-    private:
-        ShiftRowCol mPatternMustHave1[1] = {ShiftRowCol(1, 0)};
-        ShiftRowCol mPatternNeedOne1[6] = {ShiftRowCol(-2, 0), ShiftRowCol(-1, -1), ShiftRowCol(-1, 1), ShiftRowCol(2, -1), ShiftRowCol(2, 1), ShiftRowCol(3, 0)};
-        ShiftRowCol mPatternMustHave2[1] = {ShiftRowCol(2, 0)};
-        ShiftRowCol mPatternNeedOne2[2] = {ShiftRowCol(1, -1), ShiftRowCol(1, 1)};
-        ShiftRowCol mPatternMustHave3[1] = {ShiftRowCol(0, 1)};
-        ShiftRowCol mPatternNeedOne3[6] = {ShiftRowCol(0, -2), ShiftRowCol(-1, -1), ShiftRowCol(1, -1), ShiftRowCol(-1, 2), ShiftRowCol(1, 2), ShiftRowCol(0, 3)};
-        ShiftRowCol mPatternMustHave4[1] = {ShiftRowCol(0, 2)};
-        ShiftRowCol mPatternNeedOne4[2] = {ShiftRowCol(-1, 1), ShiftRowCol(1, 1)};
-
-    private:
         size_t mColCount;
         size_t mRowCount;
         Board::VPCells mCells;

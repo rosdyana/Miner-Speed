@@ -43,8 +43,6 @@ namespace MinerSpeed
         colorToCompare = selectedCells[0]->GetItem().GetColor();
         CheckMatchInCells(inputCells, matchedCells_1, selectedCells[0]->GetPosition().y, colorToCompare);
 
-        // repeat
-
         // 1 row
         Board::VPCells matchedCells_2;
         mBoard->GetRowCells(selectedCells[1]->GetPosition().y, inputCells);

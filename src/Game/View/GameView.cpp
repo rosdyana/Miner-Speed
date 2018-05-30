@@ -5,6 +5,8 @@
 
 #include <king/Engine.h>
 #include <string>
+#include <thread>
+#include <chrono>
 #include <time.h>
 
 namespace MinerSpeed
@@ -139,10 +141,12 @@ namespace MinerSpeed
             mAudio->StopMusic();
             isGameOver = true;
         }
-
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         mEngine->Write(GameView::TRY_AGAIN_TEXT, mTryAgainTextPosition.x, mTryAgainTextPosition.y, 0.0f);
         if (mEngine->GetMouseButtonDown()) {
             mTime = 0.0f;
+            isAlmostDone = false;
+            isGameOver = false;
             mBoardView->setEnabled(true);
             GameView::TIME_PASSED = 0;
             myTimerID = SDL_AddTimer(1000, TIMER_CALLBACK, NULL);
